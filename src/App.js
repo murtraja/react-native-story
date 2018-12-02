@@ -117,14 +117,13 @@ export default class Test extends Component {
   }
   render() {
     return (
-      <View style={{flex: 1, borderWidth: 1, borderColor: 'red'}}>
-        <View style={{flex:1/2, borderWidth: 1, borderColor: 'purple'}}>
-          <Button onPress={() => this.setState((ps)=>({size:ps.size+1}))} title={'Increase'}/>
+      <View style={{flex: 1}}>
+        <View style={{flex:1/2}}>
           <Image style={{height: 300, width: 300}} source={require('./square.jpeg')}/>
         </View>
 
-        <View style={{flex:1/2, flexDirection: 'row', borderWidth: 1, borderColor: 'yellow'}}>
-          <View style={{padding: 7, borderWidth: 1}}>
+        <View style={{flex:1/2, flexDirection: 'row'}}>
+          <View style={{padding: 7}}>
             <StoryCircle size={this.state.size} read={this.state.read}/>
           </View>
           <View style={{justifyContent: 'space-between'}}>
