@@ -110,23 +110,35 @@ export default class Test extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      size: 5
+      size: 5,
+      read: 1,
     }
     console.log(data);
   }
   render() {
     return (
       <View style={{flex: 1, borderWidth: 1, borderColor: 'red'}}>
-        <View style={{flex:0.5, borderWidth: 1, borderColor: 'purple'}}>
+        <View style={{flex:1/2, borderWidth: 1, borderColor: 'purple'}}>
           <Button onPress={() => this.setState((ps)=>({size:ps.size+1}))} title={'Increase'}/>
           <Image style={{height: 300, width: 300}} source={require('./square.jpeg')}/>
         </View>
 
-        <View style={{flex:0.5, borderWidth: 1, borderColor: 'yellow'}}>
+        <View style={{flex:1/2, flexDirection: 'row', borderWidth: 1, borderColor: 'yellow'}}>
           <View style={{padding: 7, borderWidth: 1}}>
-            <StoryCircle size={this.state.size} read={1}/>
+            <StoryCircle size={this.state.size} read={this.state.read}/>
           </View>
-            <Text>Hi</Text>
+          <View style={{justifyContent: 'space-between'}}>
+          <View>
+          <Text>Total stories: {this.state.size}</Text>
+          <Button onPress={() => this.setState((ps)=>({size:ps.size+1}))} title={'Increase'}/>
+          <Button onPress={() => this.setState((ps)=>({size:ps.size-1}))} title={'Decrease'}/>
+          </View>
+          <View style={{}}>
+          <Text>Total read: {this.state.read}</Text>
+          <Button onPress={() => this.setState((ps)=>({read:ps.read+1}))} title={'Increase'}/>
+          <Button onPress={() => this.setState((ps)=>({read:ps.read-1}))} title={'Decrease'}/>
+          </View>
+          </View>
         </View>
         
       </View>
